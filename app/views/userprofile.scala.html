@@ -1,0 +1,28 @@
+@(user:User)
+
+@main("Sandbook Tool") {
+@header()
+<div id="content">
+    <aside>
+
+    </aside>
+    <section>
+    <div id="user-pic">
+        <img src="@user.getAvatarUrl">
+    </div>
+    <div id="user-info">
+       <ul>
+           <li>Username: @user.getNickname</li>
+           <li>Name: @user.getFirstName</li>
+           <li>Last Name: @user.getLastName</li>
+           <li>Email:</li>
+
+       </ul>
+    </div>
+
+    </section>
+
+</div>
+
+@footer()        
+}

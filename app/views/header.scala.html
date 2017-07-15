@@ -1,0 +1,31 @@
+
+<header>
+    <div id="main-logo" ><a href="@routes.Application.dashboard"><img src="@routes.Assets.at("images/lupa-logo.png")"/></a></div>
+    <h3 class="main-title" >@Messages("app.name")</h3>
+    <table id="header-nav" >
+       <tr>
+           <td>
+               <a href="@routes.Application.userprofile">
+                   <img id="user-avatar" src="@routes.Assets.at("images/perfil-dap.jpg")">
+               </a>
+           </td>
+           <td>
+               <a href="@routes.Application.userprofile" id="user-name">
+                   dpavon
+               </a>
+       <br> </td>
+           <td>
+               <a href="@routes.Application.index" id="logout">
+                   <button class="unmatcher">@Messages("lbl.logout")</button>
+               </a>
+           </td>
+       </tr>
+
+    </table>
+
+    <div class="clear"></div>
+
+</header>
+<div id="tabs">
+    @tabs()
+</div>

@@ -1,0 +1,148 @@
+@(telamNews: List[TelamNews])(sPage: Int)(pages: Long)(sourcesMap: Map[String, Integer])(selectedSources: List[String])
+@import helper._
+@main("Sandbook Tool"){
+@header()
+<div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <aside>
+        <div id="adv-filters">
+            <h4 class="details-title">@Messages("title.date")</h4>
+            <form action="@routes.Application.postTelamNews()" method="POST" id="dateForm">
+                <script>
+                $(document).ready(function(){
+                       if (localStorage.getItem('dateSelected') != '') {
+                            var ds = localStorage.getItem('dateSelected');
+                            $('#datepicker').attr('placeholder',ds);
+                       }
+                       });
+                </script>
+                <input type="text" id="datepicker" name="date" placeholder="Date">
+                <button id="submit" type="submit">@Messages("filter.dates")</button><br>
+
+                <script>
+                $(function() {
+                $.datepicker.setDefaults({
+                    showOn: "both",
+                    buttonImageOnly: true,
+                    buttonImage: "/assets/images/datepicker.gif",
+                    buttonText: "Calendar",
+                    autoSize: true,
+                    onSelect: function (dateText, inst) {
+                        localStorage.setItem('dateSelected', dateText);
+                    }
+                });
+                $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd"});
+                });
+                </script>
+            </form>
+            <div id="retailer-filter">
+                <h4 class="retailer-name">@Messages("title.source") </h4>
+                @form(action = routes.Application.postTelamNews(1)) {
+                <select multiple="multiple" id="sources" name="sources[]">
+                    @for((source, count) <- sourcesMap.toList sortBy {_._1}) {
+                        @if(selectedSources.contains(source)) {
+                            <option value="@source" selected="selected">@source.toLowerCase.split(" ").map(_.capitalize) (@count)</option>
+                        } else {
+                            @if(source.toLowerCase != "u0027s") {
+                                <option value="@source">@source.toLowerCase.split(" ").map(_.capitalize) (@count)</option>
+                            }
+                    }
+
+                    }
+                </select>
+                <button type="submit" id="submit">@Messages("filter.sources")</button>
+                }
+            </div>
+
+
+        </div>
+    </aside>
+    <section>
+     <h4 class="details-title">@Messages("tab.news")</h4>
+    <form action="@routes.Application.postTelamNews()" method="POST" id="search-form">
+        <input id="search" name="search" type="text" placeholder="@Messages("btn.search")">
+        <button id="submit2" type="submit">@Messages("btn.search")</button><br>
+    </form>
+        <div class="container">
+            <input id="speech" type="text">
+            <button id="rec" class="btn">Hable</button>
+            <div id="spokenResponse" class="spoken-response">
+                <div class="spoken-response__text"></div>
+            </div>
+        </div>
+        <div class="debug">
+            <div class="debug__btn btn">
+                Debug JSON results
+            </div>
+            <div class="debug__content">
+                <textarea id="response" cols="40" rows="20"></textarea>
+            </div>
+        </div>
+
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
+
+        <div id="styles-listing" class="listing-table">
+
+           @for(telamNew <- telamNews) {
+                <div class="prod-teaser">
+                    <div class="prod-thumb"><img src="@telamNew.getImage" /></div>
+                    <div class="retailer">@telamNew.getTitle</div>
+                    <div class="original-price"><a href="@telamNew.getUrl" target="_blank">Link</a><br>Fuente: @telamNew.getSource<br>Fecha: @telamNew.getNewsDate</div>
+                </div>
+           }
+
+        @if(flash.containsKey("error")) {
+        <div>
+            @flash.get("error")
+        </div>
+        }
+        <br/>
+        <form id="paginationForm" action="@routes.Application.postTelamNews()" method="POST">
+        <div id="pagination">
+            <ul>
+                <button type="submit" class="prev">Previous</button>
+                <li class="current-page">@sPage</li>
+                <li>of</li>
+                <li class="total-pages">@pages</li>
+                <button type="submit" class="next">Next</button>
+
+            </ul>
+        </div>
+        </form>
+
+        <script>
+    var tPages = @pages;
+    var sPage= @sPage;
+    var sRetailers = [];
+    @*sRetailers = '@selectedRetailers';*@
+    var sDate = localStorage.getItem('dateSelected');
+    $('.next').click(function(){
+
+        sPage = sPage+1;
+      //  window.location.href="/styles?sPage="+sPage;
+      $('<input>').attr('type','hidden').attr('name','sPage').attr('value',sPage).appendTo('#paginationForm');
+      $('<input>').attr('type','hidden').attr('name','date').attr('value',sDate).appendTo('#paginationForm');
+      $('<input>').attr('type','hidden').attr('name','retailers').attr('value',sRetailers).appendTo('#paginationForm');
+    })
+    $('.prev').click(function(){
+
+        sPage = sPage-1;
+        //window.location.href="/styles?sPage="+sPage;
+    });
+    if(tPages==1){
+        $('.next , .prev').addClass('disabled');
+    }
+    if(sPage==tPages){
+        $('.next').addClass('disabled');
+    }
+    if(sPage==1){
+        $('.prev').addClass('disabled');
+    }
+
+
+
+
+        </script>
+    </section>
+    </div>
+@footer()
+}

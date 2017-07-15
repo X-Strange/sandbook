@@ -1,0 +1,30 @@
+
+@main("Sandbook Tool") {
+<div id="content" class="login-page">
+    <div class="left-col">
+    <div id="main-logo"><a href="@routes.Application.dashboard"><img src="@routes.Assets.at("images/lupa-logo.png")"/></a></div>
+    <h1 class="page-title ">@Messages("app.name")</h1>
+    </div>
+    <div class="right-col">
+    <form class="login" action="@routes.Application.dashboard">
+        <h1>@Messages("login.login")</h1>
+        <label>@Messages("login.user"): </label><input type="text"/><br>
+        <label>@Messages("login.pass"): </label><input type="password"/><br>
+        <button type="submit" id="submit">@Messages("login.login")</button>
+    </form>
+    <div>
+    <form class="login" method="GET" action="language">
+        <label>@Messages("login.select"): </label><br>
+        <select name="language" onchange="this.form.submit()" style="width: 200px;">
+            <option value=" ">-------</option>
+            <option value="es" >Español</option>
+            <option value="en" >English</option>
+        </select>
+    </form>
+    </div>
+    </div>
+    <script>
+        $('input:first-of-type').focus();
+    </script>
+</div>
+}

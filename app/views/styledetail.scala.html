@@ -1,0 +1,95 @@
+@(style: Style)
+
+
+@main("Sandbook Tool") {
+@header()
+
+<div id="content">
+    <h2 class="product-name">Style: @style.getStyleName</h2>
+
+        <aside>
+            <h4 class="retailer-name">Style Image</h4>
+            <image id="product-image" src="@style.getImgUrl" title="style image" ></image>
+            <h4 class="retailer-name">Retailer: <b>@style.getRetailerName</b></h4>
+            <image id="retailer-logo"  title="logo"></image>
+        </aside>
+        <section>
+            <h4 class="details-title">Style Description</h4>
+            <p>For the perfect combination of comfort and professional polish, get a pair of Dockers khaki flat-fronts.
+             <ul>
+                <li>@style.getStyleDescription
+
+
+              </ul>
+            <div class="original-price">Price: $@style.getOriginalPrice</div>
+            </p>
+            <table class="product-info" cellspacing="0" >
+                <tr>
+                    <td>Styles Count: </td><td><p id="value"></p></td>
+                </tr>
+                <tr>
+                    <td>Min Price: </td><td><p></p>$@style.getMinPrice</td>
+                </tr>
+                <tr>
+                    <td>Max Price: </td><td>$@style.getMaxPrice</td>
+                </tr>
+                <tr>
+                    <td>Average Price: </td><td>$@style.getAveragePrice</td>
+                </tr>
+            </table>
+
+
+    </section>
+    <div id="related-products">
+        <ul>
+            <li><a href="#similar-products">Similar Products</a></li>
+            <li><a href="#possible-matches">Possible Matches</a></li>
+
+        </ul>
+        <div id="similar-products">
+            <table class="product-info" cellspacing="0" >
+                <thead>
+                <th>Style Name</th><th>Retailer</th><th>Price</th><th>URL</th><th>Unmatch</th>
+                </thead>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="unmatcher">Unmatch</button></td></tr>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="unmatcher">Unmatch</button></td></tr>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="unmatcher">Unmatch</button></td></tr>
+            </table>
+        </div>
+        <div id="possible-matches">
+            <table class="product-info" cellspacing="0" >
+                <thead>
+                <th>Style Name</th><th>Retailer</th><th>Price</th><th>URL</th><th>Match</th>
+                </thead>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="matcher">Match</button></td></tr>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="matcher">Match</button></td></tr>
+                <tr><td>Style Name</td><td>Kohl's</td><td>Price</td><td>URL</td><td><button class="matcher">Match</button></td></tr>
+            </table>
+        </div>
+
+    </div>
+
+
+    <script>
+
+  </script>
+    <script>
+$(document).ready(function(){
+
+    $( "#related-products" ).tabs();
+
+    var retailerImg = '@style.getRetailerName';
+
+    retailerImg = retailerImg.replace("'", '', 'g').replace(/&#x27;/g,"").toLowerCase();
+
+    var imgUrl = '/assets/images/'+retailerImg+'-logo.png';
+
+    $('#retailer-logo').attr('src',imgUrl);
+
+});
+</script>
+</div>
+
+
+@footer()
+}

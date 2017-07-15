@@ -1,0 +1,16 @@
+@(filterForm: Form[views.formdata.FilterForm],
+brands:Map[String,Boolean])
+
+@import bootstrap._
+
+<fieldset>
+    <!-- Brands -->
+    @checkboxes(filterForm("brands"),
+    checkboxMap = brands)
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="submit" type="submit" value="Submit" class="btn filter-submit">Apply Filter</button>
+        </div>
+    </div>
+</fieldset>
+

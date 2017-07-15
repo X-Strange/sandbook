@@ -1,0 +1,37 @@
+@(styles: List[Style])
+
+@main("Sandbook Tool"){
+@header()
+<div id="content">
+    <aside>
+        <div id="picker">
+
+        </div>
+        <button id="submit">Save</button>
+    </aside>
+    <section>
+
+        <script src="@routes.Assets.at("javascripts/overlap-chart.js")"></script>
+
+
+        <div id="dashboard"></div>
+
+        <div id="chart"></div>
+        <div id="linechart"></div>
+    </section>
+
+
+      <div class="collection-products">
+        <h4 class="details-title">Styles</h4>
+        <ul>  @for(style <- styles) {
+            <li><a href="@routes.Application.styledetail(style.getStyleId)"><image class="prod-thumb" src="@style.getImgUrl"></image></a><br>
+           <h6><a href="@routes.Application.styledetail(style.getStyleId)">@style.getStyleName</a></h6>
+            }
+
+
+        </ul>
+
+    </div>
+  </div>
+  @footer()
+}

@@ -1,0 +1,149 @@
+@(sources: List[Source])(filterForm: Form[views.formdata.FilterForm],
+brands:Map[String,Boolean],
+raw: String)
+
+@import helper._
+
+
+@main("Sandbook Tool"){
+    @header()
+    <div id="content">
+        <aside>
+            <div id="picker">
+                <div id="form">
+                <h3>@Messages("title.source")</h3>
+                <form id="selectform">
+                @for(index <- sources.indices){
+                    <div class="inline-field">
+                        <label><input type="checkbox" name="varCheck" value="@{index+1}">@sources(index).getName</label>
+                    </div>
+                    }
+                </form>
+                </div>
+<!--
+                <div id="form2">
+                <h3>Brands</h3>
+                <form id="selectform2">
+                    <input type="checkbox" name="varCheck2" value="0">Adidas<br>
+                    <input type="checkbox" name="varCheck2" value="1">Asics<br>
+                    <input type="checkbox" name="varCheck2" value="2">Converse<br>
+                    <input type="checkbox" name="varCheck2" value="3">Crocs<br>
+                    <input type="checkbox" name="varCheck2" value="4">Dockers<br>
+                    <input type="checkbox" name="varCheck2" value="5">Keds<br>
+                    <input type="checkbox" name="varCheck2" value="6">New Balance<br>
+                    <input type="checkbox" name="varCheck2" value="7">Nike<br>
+                    <input type="checkbox" name="varCheck2" value="8">Nunn Bush<br>
+                    <input type="checkbox" name="varCheck2" value="9">Skechers<br>
+
+                </form>
+                </div>
+-->
+                <div class="well">
+                    <h3>@Messages("title.keyword")</h3>
+                    @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
+                    @fieldset(filterForm, brands)
+                    }
+                </div>
+            </div>
+            <button id="submit">Save</button>
+        </aside>
+        <section>
+        <script>
+        raw = '@raw';
+        </script>
+        <script src="@routes.Assets.at("javascripts/chart.js")"></script>
+
+        <input type="button" value="Show Table" id="button1" onclick="toggle(this)" class="refresh"/>
+        <div id="dashboard"></div>
+        <div id="control" style="display:none"></div>
+        <div id="chart"></div>
+        <div id="table"></div>
+@*            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+
+                    google.charts.load('current', {'packages':['bar']});
+
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        var json;
+                        $.ajax({
+                            url: 'http://localhost:9200/aleph/telam/_search',
+                            type: 'POST',
+                            data :
+                                    JSON.stringify(
+                                            {
+                                                "query" : { "query_string": {
+                                                    "query": "huelga macri"
+                                                } },
+                                                "facets" : {
+                                                    "tags" : {
+                                                        "terms" : {
+                                                            "field" : "source",
+                                                            "size"  : "10"
+                                                        }
+                                                    }
+                                                }
+                                            }),
+                            dataType : 'json',
+                            async: false,
+                            success: function(data){
+                                json = data;
+                            }
+                        });
+
+
+
+                        var jdata = {};
+                        jdata.cols = [
+                            {
+                                "id": "",
+                                "label": "Source",
+                                "type": "string"
+                            },
+                            {
+                                "id": "",
+                                "label": "News",
+                                "type":"number"
+                            }
+                        ];
+//need loop:
+                        jdata.rows = [
+                            {
+                                "c": [
+                                    {
+                                        "v": json.facets.tags.terms[0].term
+                                    },
+                                    {
+                                        "v": json.facets.tags.terms[0].count
+                                    }
+                                ]
+                            },
+                            {
+                                "c": [
+                                    {
+                                        "v": json.facets.tags.terms[1].term
+                                    },
+                                    {
+                                        "v": json.facets.tags.terms[1].count
+                                    }
+                                ]
+                            }
+                        ];
+                        var data = new google.visualization.DataTable(jdata);
+                        var options = {
+                            chart: {
+                                title: 'Keywords by sources',
+                                subtitle: 'How to impact different keywords in the sources'
+                            }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('piechart_div'));
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+            </script>
+            <div id="piechart_div"> </div>*@
+        </section>
+    </div>
+@footer()
+}

@@ -1,0 +1,105 @@
+@(styles: List[Style])(retailer: String)(brand: String)(value: String)
+
+@main("Sandbook Tool"){
+@header()
+<div id="content">
+
+        <aside>
+            <h4 class="retailer-name">Retailer: <b>@retailer</b></h4>
+            <image id="retailer-logo" src="" title="logo"></image>
+            <h4 class="brand-name">Brand: <b>@brand</b></h4>
+            <image id="brand-logo" src="" title="logo" ></image>
+        </aside>
+        <section>
+            <h4 class="details-title">Product Data</h4>
+           <script src="@routes.Assets.at("javascripts/collection-chart.js")"></script>
+            <div id="collection-dash">
+               <div id="collection-table"></div>
+               <div id="control1"></div>
+               <div id="collection-chart"></div>
+            </div>
+
+
+        </section>
+      <div class="collection-products">
+        <h4 class="details-title"><b>@retailer / @brand</b> Styles</h4>
+        <ul>  @for(style <- styles) {
+            <li><a href="@routes.Application.styledetail(style.getStyleId)"><image class="prod-thumb" src="@style.getImgUrl"></image></a><br>
+            <h6><a href="@routes.Application.styledetail(style.getStyleId)">@style.getStyleName</a></h6>
+            }
+
+
+        </ul>
+
+    </div>
+
+
+
+</div>
+<script>
+retailerP = '@retailer';
+brandP = '@brand';
+function swapImage(name, logo) {
+    console.log('Name: ' + name);
+    //name = '"' + name + '"';
+    //var path = '"public/images"';
+    //var finalPath = path + ',' + name;
+    //console.log('Final Path: ' + finalPath);
+    console.log(window.location.host);
+    var host = window.location.host;
+    if (window.location.host.indexOf(':9000') != -1) {
+        document.getElementById(logo).src = "/assets/images/" + name;
+    } else {
+        document.getElementById(logo).src = "/ait/assets/images/" + name;
+    }
+    //"@routes.Assets.at("  + finalPath + ")";
+
+}
+
+//var retailer = '@retailer';
+retailerP = retailerP.replace("'", '', 'g').replace(/&#x27;/g,"");
+//var brand = '@brand';
+console.log('Retailer:' + retailerP);
+console.log('Brand:' + brandP);
+
+if (retailerP === 'Macys') {
+    swapImage('macys-logo.png', 'retailer-logo');
+} else if (retailerP === 'Kohls') {
+    swapImage('kohls-logo.png', 'retailer-logo');
+} else if (retailerP === 'JC Penney') {
+    swapImage('jcpenney-logo.gif', 'retailer-logo');
+} else if (retailerP === 'Payless') {
+    swapImage('payless-logo.gif', 'retailer-logo');
+} else if (retailerP === 'Zappos') {
+    swapImage('zappos-logo.jpg', 'retailer-logo');
+} else if (retailerP === 'Target') {
+    swapImage('target-logo.jpg', 'retailer-logo');
+};
+
+if (brandP === 'Adidas') {
+    swapImage('adidas-logo.jpg', 'brand-logo');
+} else if (brandP === 'Nike') {
+    swapImage('nike-logo.jpg', 'brand-logo');
+} else if (brandP === 'Nunn Bush') {
+    swapImage('nunnbush-logo.png', 'brand-logo');
+} else if (brandP === 'Dockers') {
+    swapImage('dockers-logo.png', 'brand-logo');
+} else if (brandP === 'New Balance') {
+    swapImage('nb-logo.gif', 'brand-logo');
+} else if (brandP === 'Asics') {
+    swapImage('asics-logo.jpg', 'brand-logo');
+} else if (brandP === 'Converse') {
+    swapImage('converse-logo.jpg', 'brand-logo');
+} else if (brandP === 'Crocs') {
+    swapImage('crocs-logo.png', 'brand-logo');
+} else if (brandP === 'Keds') {
+    swapImage('keds-logo.png', 'brand-logo');
+} else if (brandP === 'Skechers') {
+    swapImage('skechers-logo.jpg', 'brand-logo');
+};
+</script>
+<!--<script src="@routes.Assets.at("javascripts/swapimages.js")">
+</script>-->
+
+@footer()
+}

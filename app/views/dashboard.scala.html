@@ -1,0 +1,29 @@
+
+
+@main("Sandbook Tool") {
+
+@header()
+<div id="content">
+    <h2>@Messages("app.welcome")</h2>
+
+    <p>
+        @Messages("app.welcome.dashboard")
+    </p>
+    <div id="main-dashboard">
+        <div id="control" style="display:none"></div>
+        <main>
+            <div class="dashboard-panel" id="panel-1">
+            </div>
+            <div class="dashboard-panel" id="panel-2">
+            </div>
+            <div class="dashboard-panel" id="panel-3">
+            </div>
+            <div class="dashboard-panel" id="panel-4">
+            </div>
+
+        </main>
+    </div>
+    <script src="@routes.Assets.at("javascripts/dashboard-charts.js")"></script>
+</div>
+@footer()
+}
