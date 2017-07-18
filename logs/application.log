@@ -1,93 +1,69 @@
-2017-07-12 12:26:06,653 - [INFO] - from play in pool-4-thread-3 
+2017-07-17 23:56:27,347 - [INFO] - from play in pool-6-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2017-07-12 12:26:13,266 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+2017-07-17 23:57:19,843 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 15:05:33,509 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-7 
+2017-07-18 00:18:48,547 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 15:17:26,979 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-7 
+2017-07-18 00:21:54,826 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:15:14,246 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-10 
+2017-07-18 00:23:04,750 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:17:03,132 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-10 
+2017-07-18 00:24:31,711 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:24:56,906 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-10 
+2017-07-18 00:32:54,311 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:50:46,411 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-11 
+2017-07-18 00:35:20,248 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:55:21,835 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-11 
+2017-07-18 00:35:58,327 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:56:18,568 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-11 
+2017-07-18 00:46:33,039 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 16:58:37,742 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-11 
+2017-07-18 00:48:19,068 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:02:05,657 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-13 
+2017-07-18 00:49:23,722 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:10:05,945 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-14 
+2017-07-18 00:52:10,620 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:11:37,036 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-15 
+2017-07-18 00:55:51,885 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:20:59,585 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-15 
+2017-07-18 00:59:07,728 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:21:44,300 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-15 
+2017-07-18 01:01:30,755 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 17:23:18,427 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-16 
+2017-07-18 01:03:24,952 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-9 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 23:45:03,111 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-16 
+2017-07-18 01:06:39,627 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-9 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 23:50:58,026 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-16 
+2017-07-18 01:07:17,192 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-9 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 23:52:02,762 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-16 
+2017-07-18 01:10:45,215 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-9 
 given scan urls are empty. set urls in the configuration
 
-2017-07-12 23:58:52,458 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
+2017-07-18 01:12:52,156 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-9 
 given scan urls are empty. set urls in the configuration
 
-2017-07-13 00:16:43,208 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
+2017-07-18 01:22:01,042 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-12 
 given scan urls are empty. set urls in the configuration
 
-2017-07-13 00:17:44,955 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 00:18:43,411 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 00:20:12,805 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 00:22:14,762 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 00:37:54,026 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 01:08:46,179 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 16:09:13,638 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 16:10:20,905 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
-given scan urls are empty. set urls in the configuration
-
-2017-07-13 16:10:51,494 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-17 
+2017-07-18 01:24:10,949 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-12 
 given scan urls are empty. set urls in the configuration
 

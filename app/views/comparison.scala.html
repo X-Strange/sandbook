@@ -40,9 +40,13 @@ raw: String)
 -->
                 <div class="well">
                     <h3>@Messages("title.keyword")</h3>
-                    @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
+                    <span id="searchWords">No hay terminos</span>
+                    <script type="application/javascript">
+                            document.getElementById('searchWords').textContent = localStorage.getItem('searchWords');
+                    </script>
+@*                    @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
                     @fieldset(filterForm, brands)
-                    }
+                    }*@
                 </div>
             </div>
             <button id="submit">Save</button>

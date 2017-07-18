@@ -70,6 +70,10 @@ public class Application extends Controller {
 
     }
 
+    public static Result intertopic() {
+        return ok(intertopic.render());
+    }
+
     public static Result styles(int sPage) {
         List<Style> stylesList = styleDao.getAllStyles(sPage).getResults();
         //List<TermsFacet.Entry> retailers = (List<TermsFacet.Entry>) styleDao.getAllRetailers().getEntries();
