@@ -3,13 +3,13 @@ brands:Map[String,Boolean])
 
 @import bootstrap._
 
-<fieldset>
+<fieldset style="width: 175px; border-radius: 10px; padding: 25px 10px; border: 2px solid #6AAD96">
     <!-- Brands -->
     @checkboxes(filterForm("brands"),
     checkboxMap = brands)
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button id="submit" type="submit" value="Submit" class="btn filter-submit">Apply Filter</button>
+        <div class="col-sm-offset-2 col-sm-10" style="text-align: center; padding-top: 20px">
+            <button type="submit" value="Submit" class="btn-gm filter-submit-button">Apply Filter</button>
         </div>
     </div>
 </fieldset>

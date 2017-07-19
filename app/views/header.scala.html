@@ -1,31 +1,61 @@
+<style>
+    body, html {
+        margin: 0;
+    }
+    .top-nav {
+        padding: 30px 35px;
+        display: flex;
+        justify-content: space-between;
+        background: #434141;
+    }
+    .top-nav-items {
+        display: flex;
+        align-items: center;
+    }
+    #user-avatar {
+        height: 50px;
+        width: auto;
+        margin: 5px 0 0 0;
+    }
+    .user-name {
+        padding: 0 20px 0 10px;
+        color: #6AAD96 !important;
+        text-decoration: none;
+    }
+    .unmatcher {
+        background: transparent;
+        border: 1px solid #6AAD96;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        color: #6AAD96;
+        padding: 5px 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .unmatcher:hover {
+        background: #6AAD96;
+        color: white;
+    }
+</style>
 
-<header>
-    <div id="main-logo" ><a href="@routes.Application.dashboard"><img src="@routes.Assets.at("images/lupa-logo.png")"/></a></div>
-    <h3 class="main-title" >@Messages("app.name")</h3>
-    <table id="header-nav" >
-       <tr>
-           <td>
-               <a href="@routes.Application.userprofile">
-                   <img id="user-avatar" src="@routes.Assets.at("images/perfil-dap.jpg")">
-               </a>
-           </td>
-           <td>
-               <a href="@routes.Application.userprofile" id="user-name">
-                   dpavon
-               </a>
-       <br> </td>
-           <td>
-               <a href="@routes.Application.index" id="logout">
-                   <button class="unmatcher">@Messages("lbl.logout")</button>
-               </a>
-           </td>
-       </tr>
+<div class="top-nav">
+    <div class="logo" style="padding-left: 15px">
+        <a href="/dashboard">
+        <img src="@routes.Assets.at("images/logo-black.jpg")" style="height: 75px; width: auto">
+        </a>
+    </div>
+    <div class="top-nav-items">
+        <a href="@routes.Application.userprofile">
+            <img id="user-avatar" src="@routes.Assets.at("images/icon-user.png")">
+        </a>
+        <a href="@routes.Application.userprofile" class="user-name">dpavon</a>
+        <a href="@routes.Application.index">
+            <button class="unmatcher">@Messages("lbl.logout")</button>
+        </a>
+    </div>
+</div>
 
-    </table>
-
-    <div class="clear"></div>
-
-</header>
 <div id="tabs">
     @tabs()
 </div>

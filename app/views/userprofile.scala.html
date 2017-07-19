@@ -2,26 +2,26 @@
 
 @main("Sandbook Tool") {
 @header()
-<div id="content">
-    <aside>
+<div id="content" style="padding: 50px">
+    <div class="user-info" style="display: flex; align-items: center">
+        <div id="user-pic">
+            @*<img src="@user.getAvatarUrl">*@
+            <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png" style="height: 75px; width: auto">
+        </div>
+        <div id="user-info">
+           <ul>
+               @*<li>Username: @user.getNickname</li>*@
+               <li>Username: Lorem ipsum</li>
+               @*<li>Name: @user.getFirstName</li>*@
+               <li>Name: Lorem ipsum</li>
+               @*<li>Last Name: @user.getLastName</li>*@
+               <li>Last Name: Lorem ipsum</li>
+               @*<li>Email:</li>*@
+               <li>Email: Lorem ipsum</li>
 
-    </aside>
-    <section>
-    <div id="user-pic">
-        <img src="@user.getAvatarUrl">
+           </ul>
+        </div>
     </div>
-    <div id="user-info">
-       <ul>
-           <li>Username: @user.getNickname</li>
-           <li>Name: @user.getFirstName</li>
-           <li>Last Name: @user.getLastName</li>
-           <li>Email:</li>
-
-       </ul>
-    </div>
-
-    </section>
-
 </div>
 
 @footer()        

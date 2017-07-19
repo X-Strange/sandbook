@@ -5,7 +5,7 @@
 <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <aside>
         <div id="adv-filters">
-            <h4 class="details-title">Date</h4>
+            <Keyb class="details-title">Date</Keyb>
             <form action="@routes.Application.postStyles()" method="POST" id="dateForm">
                 <script>
                 $(document).ready(function(){
@@ -23,7 +23,7 @@
                 $.datepicker.setDefaults({
                     showOn: "both",
                     buttonImageOnly: true,
-                    buttonImage: "/assets/images/datepicker.gif",
+                    buttonImage: "/assets/images/icon-calendar.png",
                     buttonText: "Calendar",
                     autoSize: true,
                     onSelect: function (dateText, inst) {

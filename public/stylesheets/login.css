@@ -1,0 +1,55 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    background: #444242;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrap {
+    background: #4C4A4A;
+    width: 300px;
+    margin: 0 0 0 150px;
+    padding: 35px 25px 35px 150px;
+}
+
+.form-wrap form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrap form .login-button,
+.form-wrap form input,
+.form-wrap form select {
+    height: 35px;
+    margin: 10px 0;
+}
+
+.form-wrap form input {
+    background: rgba(255, 255, 255, .9);
+}
+
+.form-wrap form .login-button {
+    background: #6AAD96;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #6AAD96;
+    cursor: pointer;
+}
+
+.form-wrap form .login-button:hover {
+    background: #51917a;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #51917a;
+    cursor: pointer;
+}
+
+.form-wrap .select-lang {
+}

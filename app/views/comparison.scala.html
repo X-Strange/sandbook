@@ -11,7 +11,7 @@ raw: String)
         <aside>
             <div id="picker">
                 <div id="form">
-                <h3>@Messages("title.source")</h3>
+                <div class="cuadrito">@Messages("title.source")</div>
                 <form id="selectform">
                 @for(index <- sources.indices){
                     <div class="inline-field">
@@ -39,13 +39,13 @@ raw: String)
                 </div>
 -->
                 <div class="well">
-                    <h3>@Messages("title.keyword")</h3>
+                    <div class="cuadrito">@Messages("title.keyword")</div>
                     @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
                     @fieldset(filterForm, brands)
                     }
                 </div>
             </div>
-            <button id="submit">Save</button>
+            <button class="btn-gm" style="width: 100%">Save</button>
         </aside>
         <section>
         <script>
@@ -53,7 +53,7 @@ raw: String)
         </script>
         <script src="@routes.Assets.at("javascripts/chart.js")"></script>
 
-        <input type="button" value="Show Table" id="button1" onclick="toggle(this)" class="refresh"/>
+        <input type="button" value="Show Table" onclick="toggle(this)" class="btn-gm" style="padding: 7px 20px"/>
         <div id="dashboard"></div>
         <div id="control" style="display:none"></div>
         <div id="chart"></div>

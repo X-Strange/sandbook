@@ -5,7 +5,7 @@
 <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <aside>
         <div id="adv-filters">
-            <h4 class="details-title">@Messages("title.date")</h4>
+            <div class="cuadrito">@Messages("title.date")</div>
             <form action="" method="POST">
                 <script>
                 $(document).ready(function(){
@@ -15,15 +15,18 @@
                        }
                        });
                 </script>
+
                 <input type="text" id="datepicker" name="date" placeholder="Date">
-                <button id="submit" type="submit">@Messages("filter.dates")</button></br>
+                <div style="text-align:center; margin-top: 20px">
+                    <button class="btn-gm" type="submit">@Messages("filter.dates")</button>
+                </div>
 
                 <script>
                 $(function() {
                 $.datepicker.setDefaults({
                     showOn: "both",
                     buttonImageOnly: true,
-                    buttonImage: "/assets/images/datepicker.gif",
+                    buttonImage: "/assets/images/icon-calendar.png",
                     buttonText: "Calendar",
                     autoSize: true,
                     onSelect: function (dateText, inst) {
@@ -38,7 +41,7 @@
     </aside>
     <section>
 
-            <h4 class="details-title">@Messages("tab.sources")</h4>
+            <div class="cuadrito">@Messages("tab.sources")</div>
             @for(source<-sources){
         <div class="prod-teaser">
             <div class="prod-thumb"><img src="@source.getImageUrl"/></div>

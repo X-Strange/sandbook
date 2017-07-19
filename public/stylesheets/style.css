@@ -10,6 +10,21 @@ body {
 body a {
     color:#2f96b4 !important
 }
+.cuadrito {
+    background: #6AAD96;
+    padding: 10px;
+    color: white;
+    border-radius: 7px;
+}
+.btn-gm {
+    background: #6AAD96;
+    padding: 5px 15px;
+    color: white;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #6AAD96;
+}
 h1 {
 
   font-size: 28px !important;
@@ -35,8 +50,7 @@ clear:both;
 #products button,
 button#submit,
 header button,
-button.matcher,
-button.unmatcher{
+button.matcher{
   background: white;
   border-radius: 3px;
   border: solid 1px #ccc;
@@ -142,12 +156,18 @@ background:#f1f1f1;
 }
 
 #tabs {
-    padding:0 15px;
+    padding:0 10px;
     font-size:0;
     border-bottom: 1px solid #ddd;
-    background:#f1f1f1;
+    background: #333131;
 }
-
+#tabs a {
+    text-decoration: none;
+    color: #6AAD96 !important;
+}
+#tabs li.active a {
+    font-weight: bold;
+}
 #tools ul li {
     display:inline-block;
     padding: 10px 30px;
@@ -260,8 +280,8 @@ footer {
 #user-pic {
     float:left;
     padding: 10px;
-    border: solid 1px #ddd;
-    margin-right:15px
+    /* border: solid 1px #ddd; */
+    margin-right:15px;
 }
 #user-pic img {
     max-width:120px;
@@ -354,7 +374,7 @@ aside h3,
     position: relative;
     padding:10px;
     color:white
-
+    border-radius: 10px;
 }
 .google-visualization-controls-label {
     display:block !important;
@@ -372,9 +392,15 @@ aside button#submit {
 
 }
 #datepicker {
-    min-width:75%;
-    margin-right:2%;
-
+    width: 130px;
+    margin-left: 10px;
+}
+.ui-datepicker-trigger {
+    position: relative;
+    top: 7px;
+    left: 5px;
+    height: 27px;
+    width auto;
 }
 #ui-datepicker-div{
     background:white;
@@ -611,10 +637,6 @@ h2.product-name {
 #pagination ul li.disabled {
     pointer-events:none;
     color:#d5d5d5
-}
-select {
-    width:100%;
-    min-height:150px
 }
 .prod-teaser {
     width:29%;
