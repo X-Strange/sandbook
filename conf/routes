@@ -18,6 +18,7 @@ POST    /styles                     controllers.Application.postStyles(sPage: In
 POST    /telamNews                  controllers.Application.postTelamNews(sPage: Int ?= 1)
 GET     /user                       controllers.Application.userprofile()
 GET     /retailers                  controllers.Application.retailers()
+GET     /map                        controllers.Application.map()
 GET     /language                   @controllers.LanguageController.index(language: String)
 
 # Map static resources from the /public folder to the /assets URL path

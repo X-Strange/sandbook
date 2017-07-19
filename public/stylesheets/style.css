@@ -313,8 +313,8 @@ main {
 }
 .dashboard-panel2 {
     float:left;
-    width:80%;
-    height:750px;
+    width:92%;
+    height:800px;
     margin-bottom:5%;
     transition:all 0.2s linear;
     border:solid 1px #eee;
@@ -361,6 +361,11 @@ section {
   float:right;
   width: 80%;
   margin-bottom:30px
+}
+section2 {
+    float:right;
+    width: 80%;
+    margin-bottom:30px
 }
 #search-form button {
   margin-top:0 !important;
