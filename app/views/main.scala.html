@@ -6,6 +6,7 @@
     <head>
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" type="text/css" href="http://css.kohls.com/media/css/global.css" media="all" />
         <link rel="stylesheet" type="text/css" href="http://css.kohls.com/media/css/overlay.css" media="all" />
@@ -35,6 +36,12 @@
                 }
         </script>
         <script type="text/javascript">
+            function appendToStorage(name, data){
+                var old = localStorage.getItem(name);
+                if(old === null) old = "";
+                localStorage.setItem(name, old + ',' + data);
+            }
+
     var accessToken = "8807c6cca60c4a1290fbc342a5094018",
             baseUrl = "https://api.api.ai/v1/",
             $speechInput,
@@ -149,6 +156,7 @@
     function debugRespond(val) {
         $("#search").val(normalize($("#response").text(val).text().replace(/,/g, ' ')));
         $("#submit2").click();
+        //appendToStorage('searchWords', normalize($("#response").text(val).text().replace(/,/g, ' ')));
         localStorage.setItem('searchWords', normalize($("#response").text(val).text().replace(/,/g, ' ')));
     }
 

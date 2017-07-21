@@ -73,7 +73,9 @@ public class TelamNewsDao implements ITelamNewsDAO {
         IndexResults<TelamNews> allTelamNewsAndFacetSource = null;
         try {
             telamNewsIndexQuery = TelamNews.find.query();
-            telamNewsIndexQuery.setBuilder(QueryBuilders.queryString("*" + text + "*"));
+            if (text != null) {
+                telamNewsIndexQuery.setBuilder(QueryBuilders.queryString("*" + text + "*"));
+            }
             telamNewsIndexQuery.addFacet(FacetBuilders.termsFacet("sources").field("source"));
             if (date != null) {
                 RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery("newsDate").from(date).to(date);

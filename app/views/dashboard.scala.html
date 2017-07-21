@@ -9,6 +9,424 @@
     <p>
         @Messages("app.welcome.dashboard")
     </p>
+    <p>Seleccione un termino comun:</p>
+    <div style="width: 10%">
+        <select onchange="getComboA(this)">
+            <option value="">---</option>
+            <option value="macri">Macri</option>
+            <option value="gobierno">Gobierno</option>
+        </select>
+        <script type="application/javascript">
+                function getComboA(selectObject) {
+                    var value = selectObject.value;
+                    console.log('SearchWord: ' + localStorage.getItem('searchWords'));
+                    localStorage.setItem('searchWords', value);
+                    window.location.reload(false);
+                }
+        </script>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['controls']});
+            google.setOnLoadCallback(drawVisualization);
+
+            function drawVisualization() {
+
+                var json;
+                $.ajax({
+                    url: 'http://localhost:9200/aleph/twitter/_search',
+                    type: 'POST',
+                    data :
+                            JSON.stringify(
+                                    {
+                                        "query" : { "query_string": {
+                                            "query": "Trump"
+                                        } },
+                                        "facets" : {
+                                            "tags" : {
+                                                "terms" : {
+                                                    "field" : "polarity",
+                                                    "size"  : "10"
+                                                }
+                                            }
+                                        }
+                                    }),
+                    dataType : 'json',
+                    async: false,
+                    success: function(data){
+                        json = data;
+                    }
+                });
+
+                var dataJSON=[];
+                var Header= ['Tweets', json.facets.tags.terms[2].term, json.facets.tags.terms[1].term, json.facets.tags.terms[0].term];
+                var datas=['Trump', json.facets.tags.terms[2].count, json.facets.tags.terms[1].count, json.facets.tags.terms[0].count];
+                dataJSON.push(Header);
+                dataJSON.push(datas);
+                var data = google.visualization.arrayToDataTable(dataJSON);
+
+                // Define a category picker control for the Gender column
+                var categoryPicker = new google.visualization.ControlWrapper({
+                    'controlType': 'CategoryFilter',
+                    'containerId': 'control',
+                    'options': {
+                        'filterColumnLabel': 'Tweets',
+                        'ui': {
+                            'labelStacking': 'vertical',
+                            'allowTyping': false,
+                            'allowMultiple': false,
+
+                        }
+                    }
+                });
+
+                // Define a Bar chart
+                var bar = new google.visualization.ChartWrapper({
+                    'chartType': 'BarChart',
+                    'containerId': 'panel-1',
+                    'options': {
+                        'width': '100%',
+
+                        'isStacked': true,
+                        'title': 'Analisis de Sentimiento para Twitter',
+                        'chartArea':{left:80, width:'70%'}
+
+                    }
+                });
+
+                var pie = new google.visualization.ChartWrapper({
+                    'chartType': 'PieChart',
+                    'containerId': 'panel-2',
+                    'options': {
+                        'width': '100%',
+
+                        'title': 'Comparativa',
+                        'chartArea':{left:80, width:'100%'}
+
+                    }
+
+                });
+
+                // Create a dashboard
+                new google.visualization.Dashboard(document.getElementById('main-dashboard')).
+                // Establish bindings, declaring the both the slider and the category
+                // picker will drive both charts.
+                bind([categoryPicker], [bar, pie]).
+                // Draw the entire dashboard.
+                draw(data);
+
+            }
+    </script>
+    <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['controls']});
+            google.setOnLoadCallback(drawVisualization);
+
+            function drawVisualization() {
+
+                var json;
+                $.ajax({
+                    url: 'http://localhost:9200/aleph/sentiment_paro/_search',
+                    type: 'POST',
+                    data :
+                            JSON.stringify(
+                                    {
+                                        "query" : { "query_string": {
+                                            "query": "Paros"
+                                        } },
+                                        "facets" : {
+                                            "tags" : {
+                                                "terms" : {
+                                                    "field" : "polarity",
+                                                    "size"  : "10"
+                                                }
+                                            }
+                                        }
+                                    }),
+                    dataType : 'json',
+                    async: false,
+                    success: function(data){
+                        json = data;
+                    }
+                });
+
+                var dataJSON=[];
+                var Header= ['Tweets',json.facets.tags.terms[2].term, json.facets.tags.terms[1].term, json.facets.tags.terms[0].term];
+                var datas=['Paros', json.facets.tags.terms[2].count, json.facets.tags.terms[1].count, json.facets.tags.terms[0].count];
+                dataJSON.push(Header);
+                dataJSON.push(datas);
+                var data = google.visualization.arrayToDataTable(dataJSON);
+
+                // Define a category picker control for the Gender column
+                var categoryPicker = new google.visualization.ControlWrapper({
+                    'controlType': 'CategoryFilter',
+                    'containerId': 'control2',
+                    'options': {
+                        'filterColumnLabel': 'Tweets',
+                        'ui': {
+                            'labelStacking': 'vertical',
+                            'allowTyping': false,
+                            'allowMultiple': false,
+
+                        }
+                    }
+                });
+
+                // Define a Bar chart
+                var bar = new google.visualization.ChartWrapper({
+                    'chartType': 'ColumnChart',
+                    'containerId': 'panel-2',
+                    'options': {
+                        'width': '100%',
+
+                        'isStacked': false,
+                        'title': 'Analisis de Sentimiento en Twitter por palabra',
+                        'chartArea':{left:80, width:'70%'}
+
+                    }
+                });
+
+                // Create a dashboard
+                new google.visualization.Dashboard(document.getElementById('main-dashboard')).
+                // Establish bindings, declaring the both the slider and the category
+                // picker will drive both charts.
+                bind([categoryPicker], [bar]).
+                // Draw the entire dashboard.
+                draw(data);
+
+            }
+    </script>
+    <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['controls']});
+            google.setOnLoadCallback(drawVisualization);
+
+            function drawVisualization() {
+
+                var json;
+                $.ajax({
+                    url: 'http://localhost:9200/aleph/telam/_search',
+                    type: 'POST',
+                    data :
+                            JSON.stringify(
+                                    {
+                                        "query": {
+                                            "query_string": {
+                                                "query": localStorage.getItem('searchWords')
+                                            }
+                                        },
+                                        "facets": {
+                                            "tags": {
+                                                "terms": {
+                                                    "field": "source",
+                                                    "size": "10"
+                                                }
+                                            }
+                                        }
+                                    }),
+                    dataType : 'json',
+                    async: false,
+                    success: function(data){
+                        json = data;
+                    }
+                });
+
+                var dataJSON=[];
+                var Header= ['Noticias', json.facets.tags.terms[1].term, json.facets.tags.terms[0].term];
+                dataJSON.push(Header);
+                for (var i = 0; i < json.facets.tags.terms.length - 1; i++) {
+                    var temp=[];
+                    temp.push(localStorage.getItem('searchWords'));
+                    temp.push(json.facets.tags.terms[i+1].count);
+                    temp.push(json.facets.tags.terms[i].count);
+
+                    dataJSON.push(temp);
+                }
+                console.log(JSON.stringify(dataJSON));
+                var data = google.visualization.arrayToDataTable(dataJSON);
+
+                // Define a category picker control for the Gender column
+                var categoryPicker = new google.visualization.ControlWrapper({
+                    'controlType': 'CategoryFilter',
+                    'containerId': 'control',
+                    'options': {
+                        'filterColumnLabel': 'Noticias',
+                        'ui': {
+                            'labelStacking': 'vertical',
+                            'allowTyping': false,
+                            'allowMultiple': false,
+
+                        }
+                    }
+                });
+
+                // Define a Column chart
+                var bar = new google.visualization.ChartWrapper({
+                    'chartType': 'ColumnChart',
+                    'containerId': 'panel-3',
+                    'options': {
+                        'width': '100%',
+
+                        'isStacked': false,
+                        'title': 'Palabras coincidentes por fuente',
+                        'chartArea':{left:80, width:'70%'}
+
+                    }
+                });
+
+                // Define a table
+                var line = new google.visualization.ChartWrapper({
+                    'chartType': 'LineChart',
+                    'containerId': 'panel-4',
+                    'options': {
+                        'width': '100%',
+
+                        'title': 'Noticias',
+                        'chartArea':{left:80, width:'70%'}
+
+                    }
+
+                });
+/*                var area = new google.visualization.ChartWrapper({
+                    'chartType': 'AreaChart',
+                    'containerId': 'panel-3',
+                    'options': {
+                        'width': '100%',
+
+                        'title': 'Sales',
+                        'chartArea':{left:80, width:'70%'}
+
+                    }
+
+                });
+                var pie = new google.visualization.ChartWrapper({
+                    'chartType': 'PieChart',
+                    'containerId': 'panel-4',
+                    'options': {
+                        'width': '100%',
+
+                        'title': 'Offers and Promotions',
+                        'chartArea':{left:80, width:'100%'}
+
+                    }
+
+                });*/
+
+                // Create a dashboard
+                new google.visualization.Dashboard(document.getElementById('main-dashboard2')).
+                // Establish bindings, declaring the both the slider and the category
+                // picker will drive both charts.
+                bind([categoryPicker], [bar]).
+                // Draw the entire dashboard.
+                draw(data);
+
+            }
+    </script>
+    <script type="text/javascript">
+            google.load('visualization', '1.1', {packages: ['controls']});
+            google.setOnLoadCallback(drawVisualization);
+
+            function drawVisualization() {
+
+                var json;
+                $.ajax({
+                    url: 'http://localhost:9200/aleph/telam/_search',
+                    type: 'POST',
+                    data :
+                            JSON.stringify(
+                                    {
+                                        "query": {
+                                            "query_string": {
+                                                "query": localStorage.getItem('searchWords')
+                                            }
+                                        },
+                                        "facets": {
+                                            "tags": {
+                                                "terms": {
+                                                    "field": "newsDate",
+                                                    "size": "10",
+                                                    "order" : "term"
+                                                }
+                                            }
+                                        }
+                                    }),
+                    dataType : 'json',
+                    async: false,
+                    success: function(data){
+                        json = data;
+                    }
+                });
+
+                var dataJSON=[];
+                var header=["Fecha", localStorage.getItem('searchWords')];
+                dataJSON.push(header);
+                for (var i = 0; i < json.facets.tags.terms.length; i++) {
+                    var temp=[];
+                    var d = new Date(json.facets.tags.terms[i].term);
+                    var year = d.getFullYear();
+
+                    //pull the last two digits of the year
+                    year = year.toString().substr(-2);
+                    date = [
+                        ('0' + d.getDate()).slice(-2),
+                        ('0' + (d.getMonth() + 1)).slice(-2),
+                        year
+                    ].join('/');
+                    temp.push(date);
+                    temp.push(json.facets.tags.terms[i].count);
+
+                    dataJSON.push(temp);
+                }
+                console.log(JSON.stringify(dataJSON));
+                var data = google.visualization.arrayToDataTable(dataJSON);
+
+                // Define a category picker control for the Gender column
+                var categoryPicker = new google.visualization.ControlWrapper({
+                    'controlType': 'CategoryFilter',
+                    'containerId': 'control',
+                    'options': {
+                        'filterColumnLabel': 'Fecha',
+                        'ui': {
+                            'labelStacking': 'vertical',
+                            'allowTyping': false,
+                            'allowMultiple': false,
+
+                        }
+                    }
+                });
+
+                // Define a table
+                var line = new google.visualization.ChartWrapper({
+                    'chartType': 'ScatterChart',
+                    'containerId': 'panel-4',
+                    'options': {
+                        title: 'Palabra clave "' + localStorage.getItem('searchWords') +'" por fecha',
+                        hAxis: {title: 'Fechas'},
+                        vAxis: {title: 'Palabra clave'},
+                        legend: 'none',
+                        pointShape: 'diamond',
+                        trendlines: {
+                            0: {
+                                type: 'polynomial',
+                                degree: 3,
+                                visibleInLegend: true,
+                                pointSize: 20, // Set the size of the trendline dots.
+                                opacity: 0.1
+                            }
+                        }
+
+                    }
+
+                });
+
+                // Create a dashboard
+                new google.visualization.Dashboard(document.getElementById('main-dashboard2')).
+                // Establish bindings, declaring the both the slider and the category
+                // picker will drive both charts.
+                bind([categoryPicker], [line]).
+                // Draw the entire dashboard.
+                draw(data);
+
+            }
+    </script>
     <div id="main-dashboard">
         <div id="control" style="display:none"></div>
         <main>
@@ -16,14 +434,27 @@
             </div>
             <div class="dashboard-panel" id="panel-2">
             </div>
+        </main>
+    </div>
+    <div id="main-dashboard2">
+        <div id="control2" style="display:none"></div>
+        <main>
             <div class="dashboard-panel" id="panel-3">
             </div>
             <div class="dashboard-panel" id="panel-4">
             </div>
+@*            <script src="@routes.Assets.at("javascripts/bower_components/webcomponentsjs/webcomponents.js")"></script>
+            <link rel="import" href="@routes.Assets.at("javascripts/bower_components/google-chart/google-chart.html")">
+            <google-chart
+            type='pie'
+            options='{"title": "Porcentajes de Likes donde aparece Macri como palabra clave por fuente"}'
+            cols='[{"label":"Fuente", "type":"string"}, {"label":"Like", "type":"number"}]'
+            rows='[["Opi", 4],["Telam", 13],["Facebook", 31]]'>
+            </google-chart>*@
 
         </main>
     </div>
-    <script src="@routes.Assets.at("javascripts/dashboard-charts.js")"></script>
+    @*<script src="@routes.Assets.at("javascripts/dashboard-charts.js")"></script>*@
 </div>
 @footer()
 }

@@ -10,6 +10,7 @@ GET     /stylecollection/:retailer/:brand/:value                   controllers.A
 POST    /comparison                 controllers.Application.postIndex()
 GET     /styledetail/:id            controllers.Application.styledetail(id: String)
 GET     /overlaps                   controllers.Application.overlaps()
+GET     /intertopic                 controllers.Application.intertopic()
 GET     /styles                     controllers.Application.styles(sPage: Int ?= 1)
 GET     /telamNews                  controllers.Application.telamNews(sPage: Int ?= 1)
 GET     /styles/:retailer           controllers.Application.retailerStyles(retailer: String)
@@ -17,6 +18,7 @@ POST    /styles                     controllers.Application.postStyles(sPage: In
 POST    /telamNews                  controllers.Application.postTelamNews(sPage: Int ?= 1)
 GET     /user                       controllers.Application.userprofile()
 GET     /retailers                  controllers.Application.retailers()
+GET     /map                        controllers.Application.map()
 GET     /language                   @controllers.LanguageController.index(language: String)
 
 # Map static resources from the /public folder to the /assets URL path

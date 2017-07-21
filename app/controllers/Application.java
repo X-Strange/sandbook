@@ -70,6 +70,14 @@ public class Application extends Controller {
 
     }
 
+    public static Result intertopic() {
+        return ok(intertopic.render());
+    }
+
+    public static Result map() {
+        return ok(map.render());
+    }
+
     public static Result styles(int sPage) {
         List<Style> stylesList = styleDao.getAllStyles(sPage).getResults();
         //List<TermsFacet.Entry> retailers = (List<TermsFacet.Entry>) styleDao.getAllRetailers().getEntries();
@@ -160,7 +168,18 @@ public class Application extends Controller {
             } while (iterator.hasNext());
 
             selectedSources.addAll(map.values());
-            telamNewsIndexResults = telamNewsDao.searchNewsBySources(page, selectedSources);
+            if (!selectedSources.get(0).contains("[]")) {
+                for (int i=0; i < selectedSources.size(); i++) {
+                    selectedSources.set(i, selectedSources.get(i).replace("[", "").replace("]", ""));
+                }
+                telamNewsIndexResults = telamNewsDao.searchNewsBySources(page, selectedSources);
+            } else {
+                if (date.equals("")) {
+                    telamNewsIndexResults = telamNewsDao.getAllTelamNews(page);
+                } else {
+                    telamNewsIndexResults = telamNewsDao.searchTelamNews(searchString, date, page, 10);
+                }
+            }
         } else {
             if (searchString == null && date.equals("")) {
                 flash("error", "Please type to search, select a date or select a retailer.");

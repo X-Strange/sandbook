@@ -112,21 +112,25 @@
         <script>
     var tPages = @pages;
     var sPage= @sPage;
-    var sRetailers = [];
-    @*sRetailers = '@selectedRetailers';*@
+    var sSources = [];
+    sSources = '@selectedSources';
     var sDate = localStorage.getItem('dateSelected');
     $('.next').click(function(){
 
         sPage = sPage+1;
-      //  window.location.href="/styles?sPage="+sPage;
       $('<input>').attr('type','hidden').attr('name','sPage').attr('value',sPage).appendTo('#paginationForm');
       $('<input>').attr('type','hidden').attr('name','date').attr('value',sDate).appendTo('#paginationForm');
-      $('<input>').attr('type','hidden').attr('name','retailers').attr('value',sRetailers).appendTo('#paginationForm');
+      $('<input>').attr('type','hidden').attr('name','sources').attr('value',sSources).appendTo('#paginationForm');
+        //$('.paginationForm').submit();
+        //window.location.href="/telamNews?sPage="+sPage;
     })
     $('.prev').click(function(){
 
         sPage = sPage-1;
-        //window.location.href="/styles?sPage="+sPage;
+        $('<input>').attr('type','hidden').attr('name','sPage').attr('value',sPage).appendTo('#paginationForm');
+        $('<input>').attr('type','hidden').attr('name','date').attr('value',sDate).appendTo('#paginationForm');
+        $('<input>').attr('type','hidden').attr('name','sources').attr('value',sSources).appendTo('#paginationForm');
+        //window.location.href="/telamNews?sPage="+sPage;
     });
     if(tPages==1){
         $('.next , .prev').addClass('disabled');
