@@ -129,6 +129,8 @@ background:#f1f1f1;
 }
 #main-logo img {
     max-width:150px;
+    padding-top: 30px;
+    padding-right: 25px;
 }
 .main-title {
     margin-left:30px;
@@ -432,7 +434,7 @@ aside button#submit {
 }
 #datepicker {
     width: 130px;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 .ui-datepicker-trigger {
     position: relative;

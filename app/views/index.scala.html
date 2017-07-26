@@ -2,7 +2,8 @@
 
 @main("Sandbook Tool") {
 <div class="login-container">
-    <div class="form-wrap">
+        <div class="form-wrap">
+            <div id="main-logo"><a href="@routes.Application.dashboard"><img src="@routes.Assets.at("images/logo-black.jpg")"/></a></div>
         <form class="login" action="@routes.Application.dashboard">
             <input type="text" placeholder="User *"/>
             <input type="password" placeholder="Password *"/>

@@ -5,7 +5,7 @@
 <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <aside>
         <div id="adv-filters">
-            <h4 class="details-title">@Messages("title.date")</h4>
+            <div class="cuadrito">@Messages("title.date")</div>
             <form action="@routes.Application.postTelamNews()" method="POST" id="dateForm">
                 <script>
                 $(document).ready(function(){
@@ -16,14 +16,16 @@
                        });
                 </script>
                 <input type="text" id="datepicker" name="date" placeholder="Date">
-                <button id="submit" type="submit">@Messages("filter.dates")</button><br>
+                <div style="margin-top: 20px;">
+                    <button class="btn-gm" type="submit">@Messages("filter.dates")</button>
+                </div>
 
                 <script>
                 $(function() {
                 $.datepicker.setDefaults({
                     showOn: "both",
                     buttonImageOnly: true,
-                    buttonImage: "/assets/images/datepicker.gif",
+                    buttonImage: "/assets/images/icon-calendar.png",
                     buttonText: "Calendar",
                     autoSize: true,
                     onSelect: function (dateText, inst) {
@@ -35,7 +37,7 @@
                 </script>
             </form>
             <div id="retailer-filter">
-                <h4 class="retailer-name">@Messages("title.source") </h4>
+                <div class="cuadrito">@Messages("title.source") </div>
                 @form(action = routes.Application.postTelamNews(1)) {
                 <select multiple="multiple" id="sources" name="sources[]">
                     @for((source, count) <- sourcesMap.toList sortBy {_._1}) {
@@ -49,7 +51,9 @@
 
                     }
                 </select>
-                <button type="submit" id="submit">@Messages("filter.sources")</button>
+                    <br>
+                    <br>
+                <button type="submit" class="btn-gm">@Messages("filter.sources")</button>
                 }
             </div>
 
@@ -57,14 +61,14 @@
         </div>
     </aside>
     <section>
-     <h4 class="details-title">@Messages("tab.news")</h4>
+        <div class="cuadrito">@Messages("tab.news")</div>
     <form action="@routes.Application.postTelamNews()" method="POST" id="search-form">
         <input id="search" name="search" type="text" placeholder="@Messages("btn.search")">
-        <button id="submit2" type="submit">@Messages("btn.search")</button><br>
+        <button id="submit2" class="btn-gm" type="submit">@Messages("btn.search")</button><br>
     </form>
         <div class="container">
             <input id="speech" type="text">
-            <button id="rec" class="btn">Hable</button>
+            <button id="rec" class="btn-gm" class="btn">Hable</button>
             <div id="spokenResponse" class="spoken-response">
                 <div class="spoken-response__text"></div>
             </div>
@@ -99,11 +103,11 @@
         <form id="paginationForm" action="@routes.Application.postTelamNews()" method="POST">
         <div id="pagination">
             <ul>
-                <button type="submit" class="prev">Previous</button>
+                <button type="submit" class="btn-gm" class="prev">Previous</button>
                 <li class="current-page">@sPage</li>
                 <li>of</li>
                 <li class="total-pages">@pages</li>
-                <button type="submit" class="next">Next</button>
+                <button type="submit" class="btn-gm" class="next">Next</button>
 
             </ul>
         </div>
