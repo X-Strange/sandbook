@@ -1,6 +1,6 @@
-2017-07-25 15:57:52,379 - [INFO] - from play in pool-4-thread-1 
+2017-08-17 18:23:32,027 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2017-07-25 15:57:57,072 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+2017-08-17 18:23:53,922 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
 given scan urls are empty. set urls in the configuration
 

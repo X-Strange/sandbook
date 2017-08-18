@@ -15,6 +15,7 @@
             <option value="">---</option>
             <option value="macri">Macri</option>
             <option value="gobierno">Gobierno</option>
+            <option value="g20">G20</option>
         </select>
         <script type="application/javascript">
                 function getComboA(selectObject) {
@@ -325,10 +326,10 @@
             google.setOnLoadCallback(drawVisualization);
 
             function drawVisualization() {
-
+                localStorage.setItem('searchWords', "g20");
                 var json;
                 $.ajax({
-                    url: 'http://localhost:9200/aleph/telam/_search',
+                    url: 'http://localhost:9200/aleph/_search',
                     type: 'POST',
                     data :
                             JSON.stringify(
@@ -341,7 +342,10 @@
                                         "facets": {
                                             "tags": {
                                                 "terms": {
-                                                    "field": "newsDate",
+                                                    "fields": [
+                                                        "newsDate",
+                                                        "comment_published"
+                                                    ],
                                                     "size": "10",
                                                     "order" : "term"
                                                 }
@@ -360,7 +364,7 @@
                 dataJSON.push(header);
                 for (var i = 0; i < json.facets.tags.terms.length; i++) {
                     var temp=[];
-                    var d = new Date(json.facets.tags.terms[i].term);
+                    var d = new Date(parseInt(json.facets.tags.terms[i].term));
                     var year = d.getFullYear();
 
                     //pull the last two digits of the year
