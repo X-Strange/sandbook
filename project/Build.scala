@@ -5,7 +5,7 @@ import com.github.play2war.plugin._
 
 object ApplicationBuild extends Build {
 
-  val appName = "ait"
+  val appName = "textdat"
   val appVersion = "1.0"
 
   lazy val scct_settings = Defaults.defaultSettings ++ Seq(ScctPlugin.instrumentSettings: _*)

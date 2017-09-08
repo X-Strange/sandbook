@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)()(implicit lang: Lang)
 
 <!DOCTYPE html>
 
@@ -52,6 +52,16 @@
             messageInternalError = "Disculpe, hubo un error interno en el servidor.",
             messageSorry = "Disculpe, no tengo la respuesta aun.";
 
+    var accessTokenEn = "3cf960a921734b88a26ebae35b1fa324",
+            baseUrl = "https://api.api.ai/v1/",
+            $speechInput,
+            $recBtn,
+            recognition,
+            messageRecording = "Listening...",
+            messageCouldntHear = "I can't hear you, can you repeat it?",
+            messageInternalError = "I'm sorry, there was an internal server error.",
+            messageSorry = "I'm sorry, I don't have any answer yet.";
+
     $(document).ready(function() {
         $speechInput = $("#speech");
         $recBtn = $("#rec");
@@ -94,7 +104,12 @@
             respond(messageCouldntHear);
             stopRecognition();
         };
-        recognition.lang = "es-AR";
+        var language = '@lang.code';
+        if (language === 'es') {
+            recognition.lang = "es-AR";
+        } else {
+            recognition.lang = "en-US";
+        }
         recognition.start();
     }
 
@@ -120,11 +135,21 @@
     }
 
     function updateRec() {
-        $recBtn.text(recognition ? "Alto" : "Hable");
+        $recBtn.text(recognition ? @Messages("btn.stop") : @Messages("btn.speak"));
     }
 
     function send() {
         var text = $speechInput.val();
+        var language = "@lang.code";
+        var sessionId = "searchagent"
+        if (language === 'es') {
+            sessionId = "searchagent"
+        } else {
+            sessionId = "searchagenten"
+            accessToken = accessTokenEn;
+        }
+        console.log("AccessToken: " + accessToken);
+        console.log("sessionId: " + sessionId);
         $.ajax({
             type: "POST",
             url: baseUrl + "query",
@@ -133,7 +158,7 @@
             headers: {
                 "Authorization": "Bearer " + accessToken
             },
-            data: JSON.stringify({query: text, lang: "es", sessionId: "searchagent"}),
+            data: JSON.stringify({query: text, lang: language, sessionId: sessionId}),
 
             success: function(data) {
                 prepareResponse(data);
@@ -191,7 +216,13 @@
             var msg = new SpeechSynthesisUtterance();
             msg.voiceURI = "native";
             msg.text = val;
-            msg.lang = "es-AR";
+            var lang = "@lang.code";
+            if (lang === 'es') {
+                msg.lang = "es-AR";
+            } else {
+                msg.lang = "en-US";
+            }
+
             window.speechSynthesis.speak(msg);
         }
 

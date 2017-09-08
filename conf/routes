@@ -19,6 +19,7 @@ POST    /telamNews                  controllers.Application.postTelamNews(sPage:
 GET     /user                       controllers.Application.userprofile()
 GET     /retailers                  controllers.Application.retailers()
 GET     /map                        controllers.Application.map()
+GET     /graph                      controllers.Application.graph()
 GET     /language                   @controllers.LanguageController.index(language: String)
 
 # Map static resources from the /public folder to the /assets URL path

@@ -1,6 +1,196 @@
-2017-08-17 18:23:32,027 - [INFO] - from play in pool-4-thread-1 
+2017-09-07 13:26:29,819 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2017-08-17 18:23:53,922 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+2017-09-07 13:27:38,509 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:32:36,436 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:40:57,161 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-1 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:43:20,294 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:44:36,084 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:53:27,953 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-3 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 13:58:32,349 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 14:08:41,187 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 14:10:26,391 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 14:11:25,430 - [ERROR] - from application in New I/O worker #6 
+
+
+! @759697nm4 - Internal server error, for (GET) [/telamNews] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[NoSuchElementException: key not found: SOURCE]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.util.NoSuchElementException: key not found: SOURCE
+	at scala.collection.MapLike$class.default(MapLike.scala:228) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractMap.default(Map.scala:58) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.MapLike$class.apply(MapLike.scala:141) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractMap.apply(Map.scala:58) ~[scala-library-2.10.3.jar:na]
+	at play.templates.GeneratedSource.source(ScalaTemplateCompiler.scala:127) ~[na:na]
+	at play.templates.GeneratedSource.needRecompilation(ScalaTemplateCompiler.scala:112) ~[na:na]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:177) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_101]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_101]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_101]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
+
+2017-09-07 14:12:27,023 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 14:15:39,116 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 14:22:12,133 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-4 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:10:00,193 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:13:54,496 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:15:39,286 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:24:11,814 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:24:58,262 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:25:26,793 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:25:46,603 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:27:10,711 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:27:31,873 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:31:15,661 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:31:28,917 - [ERROR] - from application in New I/O worker #2 
+
+
+! @75979emlc - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$UnexpectedException: Unexpected exception[NoSuchElementException: key not found: SOURCE]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:309) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.10.3.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10-2.2.2.jar:2.2.2]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10-2.2.2.jar:2.2.2]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.10.3.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.10.3.jar:na]
+java.util.NoSuchElementException: key not found: SOURCE
+	at scala.collection.MapLike$class.default(MapLike.scala:228) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractMap.default(Map.scala:58) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.MapLike$class.apply(MapLike.scala:141) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.AbstractMap.apply(Map.scala:58) ~[scala-library-2.10.3.jar:na]
+	at play.templates.GeneratedSource.source(ScalaTemplateCompiler.scala:127) ~[na:na]
+	at play.templates.GeneratedSource.needRecompilation(ScalaTemplateCompiler.scala:112) ~[na:na]
+	at play.templates.ScalaTemplateCompiler$.compile(ScalaTemplateCompiler.scala:177) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:45) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8$$anonfun$apply$9.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59) ~[scala-library-2.10.3.jar:na]
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:43) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3$$anonfun$apply$8.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library-2.10.3.jar:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:42) ~[na:na]
+	at play.PlaySourceGenerators$$anonfun$3.apply(PlaySourceGenerators.scala:30) ~[na:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:35) ~[scala-library-2.10.3.jar:na]
+	at scala.Function5$$anonfun$tupled$1.apply(Function5.scala:34) ~[scala-library-2.10.3.jar:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47) ~[scala-library-2.10.3.jar:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42) ~[na:na]
+	at sbt.std.Transform$$anon$4.work(System.scala:64) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:244) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_101]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[na:1.8.0_101]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_101]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_101]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_101]
+
+2017-09-07 17:31:34,955 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:31:50,223 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
+given scan urls are empty. set urls in the configuration
+
+2017-09-07 17:32:03,031 - [ERROR] - from org.reflections.Reflections in play-internal-execution-context-6 
 given scan urls are empty. set urls in the configuration
 

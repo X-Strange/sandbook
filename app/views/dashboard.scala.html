@@ -9,7 +9,7 @@
     <p>
         @Messages("app.welcome.dashboard")
     </p>
-    <p>Seleccione un termino comun:</p>
+    <p>@Messages("dashboard.common.term")</p>
     <div style="width: 10%">
         <select onchange="getComboA(this)">
             <option value="">---</option>
@@ -30,6 +30,8 @@
     <script type="text/javascript">
             google.load('visualization', '1.1', {packages: ['controls']});
             google.setOnLoadCallback(drawVisualization);
+            var saGraphTitle = "@Messages("graph.title.sa")";
+            localStorage.setItem('graph.title.sa', saGraphTitle);
 
             function drawVisualization() {
 
@@ -89,7 +91,7 @@
                         'width': '100%',
 
                         'isStacked': true,
-                        'title': 'Analisis de Sentimiento para Twitter',
+                        'title': localStorage.getItem('graph.title.sa'),
                         'chartArea':{left:80, width:'70%'}
 
                     }
@@ -121,6 +123,8 @@
     <script type="text/javascript">
             google.load('visualization', '1.1', {packages: ['controls']});
             google.setOnLoadCallback(drawVisualization);
+            var saGraphTitle = "@Messages("graph.title.sa2")";
+            localStorage.setItem('graph.title.sa2', saGraphTitle);
 
             function drawVisualization() {
 
@@ -180,7 +184,7 @@
                         'width': '100%',
 
                         'isStacked': false,
-                        'title': 'Analisis de Sentimiento en Twitter por palabra',
+                        'title': localStorage.getItem('graph.title.sa2'),
                         'chartArea':{left:80, width:'70%'}
 
                     }
@@ -199,6 +203,8 @@
     <script type="text/javascript">
             google.load('visualization', '1.1', {packages: ['controls']});
             google.setOnLoadCallback(drawVisualization);
+            var saGraphTitleMatch = "@Messages("graph.title.match")";
+            localStorage.setItem('graph.title.match', saGraphTitleMatch);
 
             function drawVisualization() {
 
@@ -267,7 +273,7 @@
                         'width': '100%',
 
                         'isStacked': false,
-                        'title': 'Palabras coincidentes por fuente',
+                        'title': localStorage.getItem('graph.title.match'),
                         'chartArea':{left:80, width:'70%'}
 
                     }
@@ -324,6 +330,10 @@
     <script type="text/javascript">
             google.load('visualization', '1.1', {packages: ['controls']});
             google.setOnLoadCallback(drawVisualization);
+            var saGraphTitleByDate = "@Messages("graph.title.bydate")";
+            var saGraphTitleSearchWord = "@Messages("graph.title.searchword")";
+            localStorage.setItem('graph.title.bydate', saGraphTitleByDate);
+            localStorage.setItem('graph.title.searchword', saGraphTitleSearchWord);
 
             function drawVisualization() {
                 localStorage.setItem('searchWords', "g20");
@@ -402,9 +412,9 @@
                     'chartType': 'ScatterChart',
                     'containerId': 'panel-4',
                     'options': {
-                        title: 'Palabra clave "' + localStorage.getItem('searchWords') +'" por fecha',
-                        hAxis: {title: 'Fechas'},
-                        vAxis: {title: 'Palabra clave'},
+                        title: localStorage.getItem("graph.title.searchword") + ' ' + localStorage.getItem('searchWords') + ' ' + localStorage.getItem("graph.title.bydate"),
+                        hAxis: {title: localStorage.getItem("graph.title.bydate")},
+                        vAxis: {title: localStorage.getItem("graph.title.searchword")},
                         legend: 'none',
                         pointShape: 'diamond',
                         trendlines: {

@@ -5,15 +5,17 @@
         <div class="form-wrap">
             <div id="main-logo"><a href="@routes.Application.dashboard"><img src="@routes.Assets.at("images/logo_black.png")"/></a></div>
         <form class="login" action="@routes.Application.dashboard">
-            <input type="text" placeholder="User *"/>
-            <input type="password" placeholder="Password *"/>
-            <button type="submit" class="login-button">LOGIN</button>
-            <select name="language" class="select-lang" onchange="" >
-                <option value=" ">-------</option>
-                <option value="es" >Español</option>
-                <option value="en" >English</option>
-            </select>
+            <input type="text" placeholder="@Messages("login.user")"/>
+            <input type="password" placeholder="@Messages("login.pass")"/>
+            <button type="submit" class="login-button">@Messages("login.login")</button>
         </form>
+            <form method="GET" action="language" style="padding-right: 20px">
+                <select name="language" class="select-lang" onchange="this.form.submit()" >
+                    <option value=" ">@Messages("login.select")</option>
+                    <option value="es" >Español</option>
+                    <option value="en" >English</option>
+                </select>
+            </form>
     </div>
 </div>
 <script>

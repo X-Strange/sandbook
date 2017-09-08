@@ -68,7 +68,7 @@
     </form>
         <div class="container">
             <input id="speech" type="text">
-            <button id="rec" class="btn-gm" class="btn">Hable</button>
+            <button id="rec" class="btn-gm" class="btn">@Messages("btn.speak")</button>
             <div id="spokenResponse" class="spoken-response">
                 <div class="spoken-response__text"></div>
             </div>
@@ -90,7 +90,7 @@
                 <div class="prod-teaser">
                     <div class="prod-thumb"><img src="@telamNew.getImage" /></div>
                     <div class="retailer">@telamNew.getTitle</div>
-                    <div class="original-price"><a href="@telamNew.getUrl" target="_blank">Link</a><br>Fuente: @telamNew.getSource<br>Fecha: @telamNew.getNewsDate</div>
+                    <div class="original-price"><a href="@telamNew.getUrl" target="_blank">Link</a><br>@Messages("title.source"): @telamNew.getSource<br>@Messages("title.date"): @telamNew.getNewsDate</div>
                 </div>
            }
 
@@ -103,11 +103,11 @@
         <form id="paginationForm" action="@routes.Application.postTelamNews()" method="POST">
         <div id="pagination">
             <ul>
-                <button type="submit" class="btn-gm" class="prev">Previous</button>
+                <button type="submit" class="btn-gm" class="prev">@Messages("btn.previous")</button>
                 <li class="current-page">@sPage</li>
                 <li>of</li>
                 <li class="total-pages">@pages</li>
-                <button type="submit" class="btn-gm" class="next">Next</button>
+                <button type="submit" class="btn-gm" class="next">@Messages("btn.next")</button>
 
             </ul>
         </div>

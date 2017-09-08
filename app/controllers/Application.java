@@ -78,6 +78,10 @@ public class Application extends Controller {
         return ok(map.render());
     }
 
+    public static Result graph() {
+        return ok(graph.render());
+    }
+
     public static Result styles(int sPage) {
         List<Style> stylesList = styleDao.getAllStyles(sPage).getResults();
         //List<TermsFacet.Entry> retailers = (List<TermsFacet.Entry>) styleDao.getAllRetailers().getEntries();
